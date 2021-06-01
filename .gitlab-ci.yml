@@ -8,11 +8,11 @@ stages:
     - build
     - deploy
 
-build_app:
+
+build_staging:
     stage: build
     only:
         - staging
-        - main
     cache:
         paths:
             - dist/
@@ -32,6 +32,21 @@ deploy_staging:
     script:
         - echo "No STAGING"
 
+
+build_page:
+    stage: build
+    only:
+        - main
+    cache:
+        paths:
+            - dist/
+    script:
+        - rm ./package-lock.json
+        - npm install
+        - ./node_modules/@angular/cli/bin/ng build --prod --build-optimizer --progress=false --base-href /angular/
+    artifacts:
+        paths:
+            - dist/
 
 pages:
   stage: deploy
