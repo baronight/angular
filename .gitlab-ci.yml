@@ -1,0 +1,48 @@
+image: node:14
+
+cache:
+  paths:
+    - node_modules/
+
+stages:
+    - build
+    - deploy
+
+build_app:
+    stage: build
+    only:
+        - staging
+        - main
+    cache:
+        paths:
+            - dist/
+    script:
+        - rm ./package-lock.json
+        - npm install
+        - ./node_modules/@angular/cli/bin/ng build --prod --build-optimizer --progress=false
+    artifacts:
+        paths:
+            - dist/
+
+deploy_staging:
+    stage: deploy
+    only:
+        - staging
+    environment: staging
+    script:
+        - echo "No STAGING"
+
+
+pages:
+  stage: deploy
+  script:
+    - mkdir .public
+    - cp -r dist/* .public
+    - mv .public public
+  artifacts:
+    paths:
+      - public
+  # rules:
+    # - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+  only:
+  - main
