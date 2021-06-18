@@ -9,10 +9,32 @@
       </a>
 
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Inventory</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Overview</a></li>
+        <!-- <li><a href="#" class="nav-link px-2 link-dark">Inventory</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">Customers</a></li>
-        <li><a href="#" class="nav-link px-2 link-dark">Products</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">Products</a></li> -->
+        <li>
+          <a 
+            #articleLink="routerLinkActive"
+            routerLink="/articles" 
+            class="nav-link px-2" 
+            [class.link-dark]="!articleLink.isActive" 
+            routerLinkActive="link-secondary"
+            [routerLinkActiveOptions]="{exact: true}">
+              Articles
+            </a>
+          </li>
+        <li>
+          <a 
+            #productLink="routerLinkActive"
+            [routerLink]="['products']" 
+            class="nav-link px-2" 
+            [class.link-dark]="!productLink.isActive" 
+            routerLinkActive="link-secondary"
+            [routerLinkActiveOptions]="{exact: true}">
+              Products
+            </a>
+          </li>
       </ul>
 
       <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -39,8 +61,9 @@
   <!-- <h1>
     {{title}}
   </h1> -->
+  <router-outlet></router-outlet>
   
-  <app-article></app-article>
+  <!-- <app-article></app-article> -->
 
   <!-- <app-hello-world></app-hello-world>
   <app-user-item></app-user-item>
