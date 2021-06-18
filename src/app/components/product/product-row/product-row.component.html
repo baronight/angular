@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col col-md-3 d-flex align-items-center justify-content-center">
+    <product-image [product]="product"></product-image>
+  </div>
+  <div class="col col-md-9 d-flex flex-wrap">
+    <div class="content flex-grow-1">
+      <div class="header">{{product?.name}}</div>
+      <div class="meta">
+        <div class="product-sku">SKU #{{product?.sku}}</div>
+      </div>
+      <div class="description">
+        <product-department [product]="product"></product-department>
+      </div>
+    </div>
+    <price-display [price]="product?.price"></price-display>
+  </div>
+</div>

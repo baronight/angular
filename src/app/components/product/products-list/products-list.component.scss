@@ -1,0 +1,17 @@
+:host {
+  .items {
+    display: flex;
+    flex-direction: column;
+    
+    .item {
+      flex-grow: 1;
+      background-color: lightgrey;
+      border-radius: 0.5rem;
+    }
+    .selected {
+      border: solid plum;
+      border-width: 1px;
+      background-color: lightpink;
+    }
+  }
+}

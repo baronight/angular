@@ -1,5 +1,5 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
-import { Article } from "./article.model.ts";
+import { Article } from "../../models";
 
 @Component({
   selector: 'app-article',

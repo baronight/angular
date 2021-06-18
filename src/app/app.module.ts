@@ -21,15 +21,17 @@ import { TimepickerModule } from "ngx-bootstrap/timepicker";
 import { TooltipModule } from "ngx-bootstrap/tooltip";
 import { TypeaheadModule } from "ngx-bootstrap/typeahead";
 
-// module
-import { ArticleModule } from "./article/article.module";
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HelloWorldComponent } from './hello-world/hello-world.component';
-import { UserItemComponent } from './user-item/user-item.component';
-import { UserListComponent } from './user-list/user-list.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+// module
+import { ArticleModule } from "./components/article/article.module";
+import { ProductModule } from "./components/product";
+import { HelloWorldComponent } from './components/hello-world/hello-world.component';
+import { UserItemComponent } from './components/user-item/user-item.component';
+import { UserListComponent } from './components/user-list/user-list.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -37,14 +39,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HelloWorldComponent,
     UserItemComponent,
     UserListComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-
-    //module
-    ArticleModule,
 
     // bootstrap
     AccordionModule.forRoot(),
@@ -65,6 +65,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     TooltipModule.forRoot(),
     TypeaheadModule.forRoot(),
     FontAwesomeModule,
+
+    //module
+    ArticleModule,
+    ProductModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

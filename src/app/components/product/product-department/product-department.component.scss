@@ -1,0 +1,8 @@
+:host {
+
+  .product-department {
+    > span > * {
+      margin-right: 0.25rem;
+    }
+  }
+}
