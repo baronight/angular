@@ -1,0 +1,19 @@
+
+<div class="row justify-content-md-center mb-5 mt-4">
+  <form class="col col-md-9 ui large form segment">
+    <h5 class="ui header">Add a Link</h5>
+    <div class="mb-3">
+      <label for="title" class="form-label">Title: </label>
+      <input #newtitle type="text" id="title" name="title" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="link" class="form-label">Link: </label>
+      <input #newlink type="text" id="link" name="link" class="form-control">
+    </div>
+    <button class="btn btn-success mb-2 float-end" (click)="addArticle(newtitle, newlink)">Submit link</button>
+  </form>
+</div>
+
+<div class="post">
+  <app-article-item *ngFor="let article of sortedVoteArticles()" [article]="article"></app-article-item>
+</div>

@@ -1,0 +1,29 @@
+
+<div class="col col-9">
+  <div class="row justify-content-center">
+    <div class="col col-md-2 votes text-center">
+      <div class="value">
+        {{article.votes}}
+      </div>
+      <div class="label">
+        Points
+      </div>
+    </div>
+    <div class="col col-md-10">
+      <div class="row row-cols-1 h-50 mb-3">
+        <div class="col">
+          <a href="{{article.link}}" class="large header link-dark">{{article.title}}</a>
+        </div>
+        <div class="col meta">
+          ({{article.domain()}})
+        </div>
+      </div>
+      <div class="row">
+        <div class="col voters">
+          <button class="btn btn-link vote-btn link-info" (click)="voteUp()"><i class="fa fa-arrow-up"></i> upvote</button>
+          <button class="btn btn-link vote-btn link-info" (click)="voteDown()"><i class="fa fa-arrow-down"></i> downvote</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

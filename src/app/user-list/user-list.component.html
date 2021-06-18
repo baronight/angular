@@ -1,0 +1,6 @@
+<ul>
+  <li *ngFor="let name of names">
+    {{name}} is <span *ngFor="let n of name.split('')" style="margin-right: 0.2em;">{{n}}</span>
+    <app-user-item [name]="name"></app-user-item>
+  </li>
+</ul>

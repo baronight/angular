@@ -1,0 +1,31 @@
+:host {
+  .votes {
+    background-color: lightgray;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.25rem;
+    font-weight: bold;
+
+    .value {
+      font-size: 2.5rem;
+    }
+    .label {
+      text-transform: uppercase;
+    }
+  }
+  .header {
+    font-size: 2rem;
+    margin-left: 1rem;
+    font-weight: bold;
+  }
+  .meta {
+    color: gray;
+    padding-left: 2rem;
+  }
+  .voters {
+    margin-left: 2.5rem;
+    font-weight: bold;
+    .vote-btn {
+      font-weight: bold;
+    }
+  }
+}
