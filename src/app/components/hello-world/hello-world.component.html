@@ -1,1 +1,36 @@
+<h1>Tutorial my work</h1>
 <p>hello-world works!</p>
+<hr />
+<div class="row justify-content-md-center mb-5 mt-4">
+  <h2>Demo from: Sku</h2>
+  <form 
+    (ngSubmit)="onSubmit(myForm.value)"
+    class="form row mb-3 col-6"
+    [formGroup]="myForm"
+    >
+    <div class="col mb-3">
+      <label for="skuInput" class="form-label">SKU</label>
+      <input 
+        type="text"
+        class="form-control" 
+        id="skuInput"
+        placeholder="SKU" 
+        formControlName="sku" />
+      <div *ngIf="myForm.hasError('required', 'sku')" class="error invalid-feedback">
+        SKU is required.
+      </div>
+      <!-- <div *ngIf="!myForm.controls.sku.valid" class="error invalid-feedback">
+        SKU is invalid.
+      </div> -->
+      <div *ngIf="myForm.hasError('invalidSku', 'sku')" class="error invalid-feedback">
+        SKU must begin with <span>123</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Submit</button>
+    </div>
+  </form>
+  {{myForm.errors}}
+  {{myForm.dirty}}
+  {{myForm.controls.sku.valid}}
+</div>
