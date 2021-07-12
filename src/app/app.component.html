@@ -22,8 +22,8 @@
             routerLinkActive="link-secondary"
             [routerLinkActiveOptions]="{exact: true}">
               Articles
-            </a>
-          </li>
+          </a>
+        </li>
         <li>
           <a 
             #productLink="routerLinkActive"
@@ -33,8 +33,19 @@
             routerLinkActive="link-secondary"
             [routerLinkActiveOptions]="{exact: true}">
               Products
-            </a>
-          </li>
+          </a>
+        </li>
+        <li>
+          <a 
+            #productLink="routerLinkActive"
+            [routerLink]="['request', 'you-tube-search']" 
+            class="nav-link px-2" 
+            [class.link-dark]="!productLink.isActive" 
+            routerLinkActive="link-secondary"
+            [routerLinkActiveOptions]="{exact: true}">
+              Youtube Search
+          </a>
+        </li>
       </ul>
 
       <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
