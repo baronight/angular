@@ -3,10 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "config": "ts-node ./src/environments/setEnv.ts",
+    "prestart": "npm run config -- --environment=dev",
     "start": "ng serve",
     "build": "ng build",
+    "prewatch": "npm run config -- --environment=dev",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "prebuild:gh": "npm run config -- --environment=dev",
     "build:gh": "ng build --configuration github"
   },
   "private": true,
@@ -38,12 +42,15 @@
     "@angular/compiler-cli": "~12.0.2",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
+    "dotenv": "^10.0.0",
     "jasmine-core": "~3.7.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
-    "typescript": "~4.2.3"
+    "ts-node": "^10.1.0",
+    "typescript": "~4.2.3",
+    "yargs": "^17.0.1"
   }
 }

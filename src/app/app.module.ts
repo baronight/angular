@@ -32,6 +32,12 @@ import { HelloWorldComponent } from './components/hello-world/hello-world.compon
 import { UserItemComponent } from './components/user-item/user-item.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserModule } from './components/user/user.module';
+import { HttpClientModule } from '@angular/common/http';
+import { SimpleHttpComponent } from './components/simple-http/simple-http.component';
+import { youTubeSearchInjectable } from "./injectors/you-tube-search.injectables";
+import { YouTubeModule } from './components/you-tube/you-tube.module';
 
 @NgModule({
   declarations: [
@@ -40,11 +46,15 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
     UserItemComponent,
     UserListComponent,
     PageNotFoundComponent,
+    SimpleHttpComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
 
     // bootstrap
     AccordionModule.forRoot(),
@@ -69,8 +79,12 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
     //module
     ArticleModule,
     ProductModule,
+    UserModule,
+    YouTubeModule,
   ],
-  providers: [],
+  providers: [
+    youTubeSearchInjectable,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

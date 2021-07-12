@@ -1,0 +1,20 @@
+:host {
+  .form {
+    background-color: whitesmoke;
+    border: solid #dee2e6;
+    padding: 0.5rem 1rem;
+    margin-right: 0;
+    margin-left: 0;
+    border-width: 1px;
+    // border-top-left-radius: .25rem;
+    border-radius: .25rem;
+
+    .error {
+      display: block;
+      width: 100%;
+      margin-top: .25rem;
+      font-size: .875em;
+      color: #dc3545;
+    }
+  }
+}
