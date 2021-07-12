@@ -10,6 +10,8 @@
     "prewatch": "npm run config -- --environment=dev",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "prebuild:gl": "npm run config -- --environment=prod",
+    "build:gl": "ng build --prod --build-optimizer --progress=false --base-href /angular/",
     "prebuild:gh": "npm run config -- --environment=dev",
     "build:gh": "ng build --configuration github"
   },

@@ -44,7 +44,8 @@ build_page:
         - echo "Test Key ${YOUTUBE_API_KEY}"
         - rm ./package-lock.json
         - npm install
-        - ./node_modules/@angular/cli/bin/ng build --prod --build-optimizer --progress=false --base-href /angular/
+        - npm run build:gl
+        #- ./node_modules/@angular/cli/bin/ng build --prod --build-optimizer --progress=false --base-href /angular/
     artifacts:
         paths:
             - dist/
