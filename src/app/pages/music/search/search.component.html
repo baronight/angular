@@ -1,0 +1,50 @@
+<h1>Search</h1>
+
+<div class="input-group">
+  <input type="text" #newquery
+    class="form-control"
+    [value]="query"
+    (keydown.enter)="submit(newquery.value)" />
+  <button (click)="submit(newquery.value)" class="btn btn-info"><i style="margin-right: .25rem !important;" class="bi bi-search mr-1"></i>Search</button>
+</div>
+
+<div *ngIf="results">
+  <div *ngIf="!results.length">
+    No tracks were found with the term '{{query}}'
+  </div>
+
+  <div *ngIf="results.length">
+    <h1>Results</h1>
+
+    <div class="row">
+      <div class="col-lg-2 col-sm-6 col-md-4" *ngFor="let t of results">
+        <div class="thumbnail shadow mb-5">
+          <div class="content ">
+            <div class="img">
+              <img src="{{t.album.images[0].url}}" class="img-fluid img-responsive" alt="">
+            </div>
+            <div class="caption">
+              <h3>
+                <a [routerLink]="['/', 'music', 'artists', t.artists[0].id]">
+                  {{t.artists[0].name}}
+                </a>
+              </h3>
+              <p>
+                <a [routerLink]="['/', 'music', 'tracks', t.id]">
+                  {{t.name}}
+                </a>
+              </p>
+            </div>
+            <div class="attribution">
+              <h4>
+                <a [routerLink]="['/', 'music', 'albums', t.album.id]">
+                  {{t.album.name}}
+                </a>
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

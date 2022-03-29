@@ -1,0 +1,16 @@
+<div class="content">
+  <div *ngIf="track">
+    <h1>{{track.name}}</h1>
+    <p>
+      <img src="{{track.album.images[1].url}}" alt="">
+    </p>
+
+    <p *ngIf="track.preview_url">
+      <audio src="{{track.preview_url}}" controls></audio>
+    </p>
+
+  </div>
+  <p>
+    <a (click)="back()">Back</a>
+  </p>
+</div>

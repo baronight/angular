@@ -45,6 +45,8 @@ export const environment = {
   production: ${isProduction},
   YOUTUBE_API_KEY: "${process.env.YOUTUBE_API_KEY}",
   YOUTUBE_API_URL: "https://www.googleapis.com/youtube/v3/search",
+  SPOTIFY_CLIENT_ID: "${process.env.SPOTIFY_CLIENT_ID}",
+  SPOTIFY_CLIENT_SECRET: "${process.env.SPOTIFY_CLIENT_SECRET}",
 };
 `;
 
