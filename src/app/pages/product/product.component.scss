@@ -1,0 +1,15 @@
+:host {
+  .navLinks {
+    a {
+      text-decoration: none;
+    }
+    :not(:last-child) {
+      padding-right: 0.25rem;
+
+      &::after {
+        content: " |";
+        color: black;
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+<div class="content">
+  <div class="alert alert-danger" role="alert" *ngIf="message">
+    {{message}}
+  </div>
+  <form class="form-inline" *ngIf="!authSvc.getUser()" (submit)="login(username.value, password.value)">
+    <div class="form-group">
+      <label for="username">User: (type <em>user</em>)</label>
+      <input type="text" class="form-control" name="username" #username />
+    </div>
+    <div class="form-group">
+      <label for="password">Password (type <em>password</em>)</label>
+      <input type="password" class="form-control" name="password" #password />
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+    
+  </form>
+
+  <div class="well" *ngIf="authSvc.getUser()">
+    Logged in as <b>{{ authSvc.getUser() }}</b>
+    <button class="btn btn-default" (click)="logout()">Logout</button>
+  </div>
+</div>

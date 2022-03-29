@@ -38,6 +38,21 @@ import { HttpClientModule } from '@angular/common/http';
 import { SimpleHttpComponent } from './components/simple-http/simple-http.component';
 import { youTubeSearchInjectable } from "./injectors/you-tube-search.injectables";
 import { YouTubeModule } from './components/you-tube/you-tube.module';
+import { DogModule } from "./components/dog/dog.module";
+import { APP_BASE_HREF, HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { HomeComponent } from './pages/home/home.component';
+import { AboutComponent } from './pages/about/about.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ProtectedComponent } from './pages/protected/protected.component';
+import { ArtistComponent as MusicArtistComponent } from './pages/music/artist/artist.component';
+import { AlbumComponent as MusicAlbumComponent } from './pages/music/album/album.component';
+import { TrackComponent as MusicTrackComponent } from './pages/music/track/track.component';
+import { spotifyAPIInjectable } from './injectors/spotify-api.injectables';
+import { SearchComponent as MusicSearchComponent } from './pages/music/search/search.component';
+import { AuthService } from './services/auth.service';
+import { GuardsModule } from './guards/guards.module';
+import { ProductComponent } from './pages/product/product.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +62,16 @@ import { YouTubeModule } from './components/you-tube/you-tube.module';
     UserListComponent,
     PageNotFoundComponent,
     SimpleHttpComponent,
+    HomeComponent,
+    AboutComponent,
+    ContactUsComponent,
+    LoginComponent,
+    ProtectedComponent,
+    MusicArtistComponent,
+    MusicAlbumComponent,
+    MusicTrackComponent,
+    MusicSearchComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,9 +106,22 @@ import { YouTubeModule } from './components/you-tube/you-tube.module';
     ProductModule,
     UserModule,
     YouTubeModule,
+    DogModule,
+
+    GuardsModule,
   ],
   providers: [
     youTubeSearchInjectable,
+    spotifyAPIInjectable,
+    AuthService,
+    // {
+    //   provide: LocationStrategy,
+    //   useClass: HashLocationStrategy,
+    // },
+    {
+      provide: APP_BASE_HREF,
+      useValue: "/"
+    }
   ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Product } from '../../models';
 
 @Component({
@@ -8,8 +9,14 @@ import { Product } from '../../models';
 })
 export class ProductComponent implements OnInit {
   products: Product[];
+  id: string = "";
 
-  constructor() {
+  constructor(
+    private route: ActivatedRoute
+  ) {
+    route.params.subscribe(params => {
+      this.id = params.id;
+    });
     this.products = [
       new Product(
         "MYSHOES",
@@ -42,4 +49,7 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  goToProduct(id: any) {
+
+  }
 }

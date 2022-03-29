@@ -1,0 +1,25 @@
+<p>dog-list works!</p>
+
+<div class="breed" *ngFor="let b of _breeds">
+  {{b.breed}}
+  <div class="sub-breed" *ngFor="let sb of b.subBreed">
+    {{sb}}
+  </div>
+</div>
+
+<div>
+  <label for="breed">Breed</label>
+  <select [(ngModel)]="ddlBreed" #ddlBreedElm name="breed" id="breed" (change)="ddlSubBreed = ''">
+    <option value="">please select</option>
+    <option [value]="b.breed" *ngFor="let b of _breeds">{{b.breed}}</option>
+  </select>
+  {{ ddlBreed }} {{ ddlBreedElm.selectedIndex }}
+</div>
+<div *ngIf="ddlBreedElm.selectedIndex > 0 && _breeds[ddlBreedElm.selectedIndex - 1].subBreed.length > 0">
+  <label for="subBreed">Sub-Breed</label>
+  <select [(ngModel)]="ddlSubBreed" #ddlSubBreedElm name="subBreed" id="subBreed">
+    <option value="">please select</option>
+    <option [value]="sb" *ngFor="let sb of _breeds[ddlBreedElm.selectedIndex - 1].subBreed">{{sb}}</option>
+  </select>
+  {{ ddlSubBreed }} {{ ddlSubBreedElm.selectedIndex }} {{_breeds[ddlBreedElm.selectedIndex - 1].subBreed}}
+</div>
